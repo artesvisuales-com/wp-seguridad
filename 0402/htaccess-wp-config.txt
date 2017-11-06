@@ -1,0 +1,5 @@
+#PROTECCION WP-CONFIG
+<Files wp-config.php>
+ Order Allow,Deny
+ Deny from all
+</Files>

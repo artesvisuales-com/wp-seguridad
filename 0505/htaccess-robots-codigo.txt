@@ -1,0 +1,13 @@
+# BLOQUEO DE ROBOTS MALICIOSOS
+<IfModule mod_setenvif.c>
+ SetEnvIfNoCase User-Agent ^$ keep_out
+ SetEnvIfNoCase User-Agent (purebot|comodo|feedfinder)   keep_out
+ SetEnvIfNoCase User-Agent (flicky|ia_archiver|jakarta|kmccrew) keep_out
+ SetEnvIfNoCase User-Agent (libwww|planetwork|pycurl|skygrid)   keep_out
+ SetEnvIfNoCase User-Agent (casper|cmsworldmap|diavol|dotbot) keep_out
+ <Limit GET POST PUT>
+  Order Allow,Deny
+  Allow from all
+  Deny from env=keep_out
+ </Limit>
+</IfModule>

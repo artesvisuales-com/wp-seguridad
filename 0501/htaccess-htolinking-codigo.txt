@@ -1,0 +1,9 @@
+# PROTECCION HOTLINK
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{HTTP_REFERER} !^$
+ RewriteCond %{REQUEST_FILENAME} -f
+ RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g?|png)$ [NC]
+ RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?midominio\. [NC]
+ RewriteRule \.(gif|jpe?g?|png)$ - [F,NC,L]
+</IfModule>

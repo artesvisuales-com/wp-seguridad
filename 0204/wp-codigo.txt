@@ -1,0 +1,4 @@
+// ELIMINA REFERENCIAS A LA VERSION DE WORDPRESS
+function oculta_version_wp() {return '';}
+add_filter('the_generator', 'oculta_version_wp');
+remove_action('wp_head', 'wp_generator');

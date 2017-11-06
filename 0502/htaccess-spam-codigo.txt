@@ -1,0 +1,9 @@
+# BLOQUEO DE SPAM AUTOMATIZADOS
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteCond %{REQUEST_METHOD} POST
+ RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+ RewriteCond %{HTTP_REFERER} !.*misitio.com.* [NC]
+ RewriteCond %{REQUEST_URI} /wp\-comments\-post\.php [NC]
+ RewriteRule .* - [F,NC,L]
+</IfModule>
